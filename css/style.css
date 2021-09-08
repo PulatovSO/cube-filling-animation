@@ -1,0 +1,140 @@
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(62, 82, 90);
+  perspective:700px;
+  height: 100vh;
+}
+
+/* cube */
+
+.cube{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 306px;
+  height: 306px;
+  transform: translate(-50%, -50%) rotateX(157deg) rotateY(45deg);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+}
+
+.outer-back,
+.outer-right{
+  transition: all 0.5s ease-in-out;
+}
+
+.item{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  font-size: 50px;
+  line-height: 300px;
+  text-align: center;
+  background-color: rgba(58, 58, 58, 0.288);
+  color: #fff;
+}
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border-radius: 0 0 50% 50%;
+  perspective:700px;
+}
+
+.container:hover .cube{
+  top: 30%;
+}
+
+.container:hover .outer-back{
+  box-shadow: -4px -100px 30px -4px rgba(11, 16, 20, 0.2);
+}
+
+.container:hover .outer-right{
+  box-shadow: 0px -100px 30px 0px rgba(11, 16, 20, 0.2);
+}
+
+/* sides */
+.front{
+  transform: translate3d(0,0,150px);
+}
+
+.back{
+  transform: translate3d(0,0,-150px) rotateY(180deg);
+}
+
+.top{
+  transform: translate3d(0,-150px,0) rotateX(90deg);
+}
+
+.bottom{
+  transform: translate3d(0,150px,0) rotatex(-90deg);
+  background-color: rgba(58, 58, 58, 0.089);
+}
+
+.left{
+  transform: translate3d(-150px,0,0) rotateY(-90deg);
+}
+
+.right{
+  transform: translate3d(150px,0,0) rotateY(90deg);
+}
+
+
+/* inner */
+
+.inner{
+  width: 298px;
+  height: 298px;
+  background-color: rgb(0, 197, 122);
+  border: none;
+  animation-name: liquid;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.inner-top{
+  transform: translate3d(0,-150px,0) rotateX(90deg);
+  animation-name: animate-top;
+}
+
+.inner-bottom{
+  transform: translate3d(0,-150px,0) rotatex(-90deg);
+  animation: none;
+}
+
+.inner-right{
+  transform: translate3d(149px,0,0) rotateY(90deg);
+}
+
+/* animation */
+
+@keyframes liquid{
+  0%{
+    height: 0;
+  }
+  100%{
+    /* height: 210px; */
+    height: 300px;
+  }
+}
+
+@keyframes animate-top{
+  0%{
+    transform: translate3d(0,-150px,0) rotateX(90deg);
+  }
+  100%{
+    transform: translate3d(0,150px,0) rotateX(90deg);
+  }
+}
