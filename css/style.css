@@ -57,11 +57,11 @@ body{
 }
 
 .container:hover .outer-back{
-  box-shadow: -4px -100px 30px -4px rgba(11, 16, 20, 0.2);
+  box-shadow: -4px -80px 30px -4px rgba(11, 16, 20, 0.2);
 }
 
 .container:hover .outer-right{
-  box-shadow: 0px -100px 30px 0px rgba(11, 16, 20, 0.2);
+  box-shadow: 0px -80px 30px 0px rgba(11, 16, 20, 0.2);
 }
 
 /* sides */
